@@ -5,7 +5,11 @@
       href="https://unpkg.com/boxicons@latest/css/boxicons.min.css"
     />
   </head>
-  <div class="sidebar" v-bind:class="{ active: isActive }">
+  <div
+    class="sidebar"
+    v-bind:class="{ active: isActive }"
+    v-if="checkPathUrl() == true"
+  >
     <div class="logo_content">
       <div class="logo">
         <i class="bx bxl-visual-studio"></i>
@@ -20,7 +24,7 @@
         <span class="tooltip">Search</span>
       </li>
       <li v-for="item in filteredList" :key="item.Id">
-        <a href="#">
+        <a v-bind:href="item.Url">
           <i :class="item.Icon"></i>
           <span class="links_name">{{ item.Title }}</span>
         </a>
@@ -40,17 +44,10 @@
       </div>
     </div>
   </div>
-  <div class="home_content">
-    <div class="text">
-      <span>Home Content</span>
-    </div>
-    <div class="container text-center">
-      <div class="row">
-        <div class="col-sm-4">col</div>
-        <div class="col-sm-4">col</div>
-        <div class="col-sm-4">col</div>
-      </div>
-    </div>
+
+  <div v-bind:class="{ home_content: checkPathUrl() }">
+    <!-- <div style="height: 50px; background-color: #343a40"></div> -->
+    <router-view />
   </div>
 </template>
 <script>
@@ -64,39 +61,59 @@ export default {
       postList: [
         {
           Id: 0,
+          Title: "Home",
+          tooltip: "Home",
+          Icon: "bx bx-grid-alt",
+          Url: "/home",
+        },
+        {
+          Id: 0,
+          Title: "About",
+          tooltip: "About",
+          Icon: "bx bx-grid-alt",
+          Url: "/about",
+        },
+        {
+          Id: 0,
           Title: "Dashboard",
           tooltip: "Dashboard",
           Icon: "bx bx-grid-alt",
+          Url: "/dashboard",
         },
         {
           Id: 1,
           Title: "User",
           tooltip: "User",
           Icon: "bx bx-user",
+          Url: "/user",
         },
         {
           Id: 2,
           Title: "Messages",
           tooltip: "Messages",
           Icon: "bx bx-message-dots",
+          Url: "/message",
         },
         {
           Id: 3,
           Title: "Analytics",
           tooltip: "Analytics",
           Icon: "bx bxs-analyse",
+          Url: "/analytics",
         },
         {
           Id: 4,
           Title: "File Manager",
           tooltip: "File Manager",
           Icon: "bx bx-folder",
+          Url: "/fileManager",
         },
         {
           Id: 5,
           Title: "Order",
           tooltip: "Order",
           Icon: "bx bx-cart",
+          Url: "/order",
         },
       ],
     };
@@ -106,7 +123,15 @@ export default {
       this.isActive = !this.isActive;
     },
     logout: function () {
-      this.$router.push("/");
+      window.location.href = "/";
+      //   this.$router.push("/");
+    },
+    checkPathUrl: function () {
+      if (window.location.pathname != "/") {
+        return true;
+      } else {
+        return false;
+      }
     },
   },
   computed: {

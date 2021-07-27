@@ -80,7 +80,9 @@ export default {
     checkForm: function (e) {
       this.errors = [];
       if (this.username == "admin" && this.password == "1234") {
-        this.$router.push("/Home");
+        // this.$router.push("/home");
+        window.location.href = "/home";
+        return false;
       }
 
       if (!this.username) {
