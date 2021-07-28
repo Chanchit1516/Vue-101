@@ -68,6 +68,20 @@ export default {
         },
         {
           Id: 0,
+          Title: "TwoWay",
+          tooltip: "Two way binding",
+          Icon: "bx bx-network-chart",
+          Url: "/twowaybinding",
+        },
+        {
+          Id: 0,
+          Title: "Grid",
+          tooltip: "Grid",
+          Icon: "bx bxl-steam",
+          Url: "/grid",
+        },
+        {
+          Id: 0,
           Title: "About",
           tooltip: "About",
           Icon: "bx bx-grid-alt",
