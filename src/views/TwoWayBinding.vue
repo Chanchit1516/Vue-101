@@ -23,14 +23,14 @@
     </div>
   </div>
   <hr />
-  <Childcomp v-model:parentText="pageTitle" />
+  <child-comp v-model:parentText="pageTitle" />
 </template>
 <script>
-import Childcomp from "../components/TwoWay/Childcomp.vue";
+import ChildComp from "../components/TwoWay/Childcomp.vue";
 export default {
   name: "TwoWayBinding",
   components: {
-    Childcomp,
+    ChildComp,
   },
   data() {
     return {

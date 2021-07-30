@@ -26,7 +26,7 @@
 </template>
 <script>
 export default {
-  name: "Childcomp",
+  name: "ChildComp",
   props: ["parentText"],
 };
 </script>
