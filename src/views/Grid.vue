@@ -1,7 +1,7 @@
 <template lang="">
   <div class="container">
     <div class="row">
-      <div class="col-sm-12">Grid</div>
+      <div class="col-sm-12">Test auto deploy</div>
     </div>
   </div>
 </template>
